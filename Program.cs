@@ -20,7 +20,7 @@ namespace Project
             Cv2.Erode(image, ero, kernel, new OpenCvSharp.Point(-1, -1), 1);
             
             CircleSegment[] circles = Cv2.HoughCircles(ero, HoughModes.Gradient, 1, 25, 50, 10, 15, 18);
-
+            // Cv2.HoughCircles(검출대상이미지, Hough 변환모드, 이미지 스케일링 비율, 원 검출 임계값, 원 중심 간의 최소거리, 최소 반지름, 최대 반지름, 중심 검출 임계값);
             for (int i = 0; i < circles.Length; i++)
             {
                 OpenCvSharp.Point center = new OpenCvSharp.Point(circles[i].Center.X, circles[i].Center.Y);
